@@ -1,7 +1,9 @@
-﻿using EffectParticles;
+﻿using AdminToys;
+using EffectParticles;
 using EffectParticles.Features;
 using LabApi.Features.Wrappers;
 using Mirror;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,7 +28,7 @@ public abstract class ParticleController : MonoBehaviour
         public bool Active;
     }
 
-    protected abstract List<GameObject> CreateParticles(int amount);
+    protected abstract GameObject CreateParticle();
     internal abstract void Recolor(Color color);
 
     internal void Initialize(int amount, Color color, float flightDuration, Player player)
@@ -132,6 +134,17 @@ public abstract class ParticleController : MonoBehaviour
 
             NetworkServer.SendSpawnMessage(networkBehaviour.netIdentity, player.Connection);
         }
+    }
+
+    private List<GameObject> CreateParticles(int amount)
+    {
+        List<GameObject> list = [];
+        for (int i = 0; i < amount; i++)
+        {
+            list.Add(CreateParticle());
+        }
+
+        return list;
     }
 
     private void Update()
