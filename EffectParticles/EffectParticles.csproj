@@ -20,25 +20,25 @@
 
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\MERX\MERX\References\Assembly-CSharp.dll</HintPath>
+      <HintPath>..\References\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\MERX\MERX\References\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\References\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="CommandSystem.Core">
-      <HintPath>E:\Dependencies\CommandSystem.Core.dll</HintPath>
+      <HintPath>..\References\CommandSystem.Core.dll</HintPath>
     </Reference>
     <Reference Include="LabApi">
-      <HintPath>..\..\MERX\MERX\References\LabApi.dll</HintPath>
+      <HintPath>..\References\LabApi.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
-      <HintPath>E:\Dependencies\Mirror.dll</HintPath>
+      <HintPath>..\References\Dependencies\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\MERX\MERX\References\UnityEngine.dll</HintPath>
+      <HintPath>..\References\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\MERX\MERX\References\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\References\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
 	  <Publicize Include="Mirror" />
   </ItemGroup>
