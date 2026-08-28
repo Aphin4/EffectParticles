@@ -8,8 +8,8 @@ namespace EffectParticles.Features;
 
 internal static class SSParticleVisible
 {
-    internal static int StaticOwnParticlesId = 91285;
-    internal static int StaticAllParticlesId = 91125;
+    internal static int StaticOwnParticlesId => Plugin.Singleton.Config.OwnParticlesSettingId;
+    internal static int StaticAllParticlesId => Plugin.Singleton.Config.AllParticlesSettingId;
     internal static int StaticLabelId;
     internal static Dictionary<Player, SettingsState> PlayerSettings = [];
 

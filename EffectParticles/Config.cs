@@ -8,14 +8,24 @@ namespace EffectParticles;
 
 public class Config
 {
+    [Description("Id for OwnParticles Settings")]
+    public int OwnParticlesSettingId { get; set; } = 91285;
+
+    [Description("Id for AllParticles Settings")]
+    public int AllParticlesSettingId { get; set; } = 91125;
+
     [Description("Text for the Enabled setting")]
     public string SSSettingEnabledString { get; set; } = "On";
+
     [Description("Text for the Disabled setting")]
     public string SSSettingDisabledString { get; set; } = "Off";
+
     [Description("Text for the setting responsible for the own particles")]
     public string SSSettingOwnParticlesString { get; set; } = "Show own particles";
+
     [Description("Text for the setting responsible for the all particles")]
     public string SSSettingAllParticlesString { get; set; } = "Show all particles";
+
     [Description("Colors for each effect, use only the original names of the effect classes")]
     public Dictionary<string, string> Colors { get; set; } = new()
     {
@@ -73,12 +83,16 @@ public class Config
         ["Scp1509Resurrected"] = "#D2691E80",
         ["NightVision"] = "#39FF1480"
     };
+
     [Description("Lifetime for every particle in seconds")]
     public float Lifetime { get; set; } = 2f;
+
     [Description("How many particles spawning per second")]
     public float ParticlesPerSecond { get; set; } = 3;
+
     [Description("Modifier for the particle motion curve")]
     public float ArcHeight { get; set; } = 0.2f;
+
     [Description("Type of particles")]
     public string TypeParticles { get; set; } = "SphereParticles";
     internal Type ParticlesType;
