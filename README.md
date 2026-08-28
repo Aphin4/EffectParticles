@@ -35,6 +35,12 @@ When a player has an active status effect, colored particles appear around them,
 After the first launch, a `config.yml` file will be generated in your server's configuration folder:
 
 ```yaml
+# Id for OwnParticles Settings
+own_particles_setting_id: 91285
+
+# Id for AllParticles Settings
+all_particles_setting_id: 91125
+
 # Text for the Enabled setting
 s_s_setting_enabled_string: On
 
@@ -74,6 +80,7 @@ type_particles: SphereParticles
 - **Particle Types:** The particle style is determined by the class name within the plugin.
 - **Default Colors:** If a color is missing from the config for a specific effect, a default color will be assigned based on its category (Positive, Negative, Mixed, Technical).
 - **Invisibility:** The Invisibility effect makes the particles invisible as well.
+- **ServerSpecific ID`s:** If the settings of this plugin conflict with another one, change the settings ID of this plugin.
 
 ## 🧑‍💻 For Developers
 
