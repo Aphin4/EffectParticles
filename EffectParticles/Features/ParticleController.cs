@@ -1,9 +1,8 @@
-﻿using AdminToys;
+﻿using MEC;
 using EffectParticles;
 using EffectParticles.Features;
 using LabApi.Features.Wrappers;
 using Mirror;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +35,7 @@ public abstract class ParticleController : MonoBehaviour
         _pool = CreateParticles(amount);
         Recolor(color);
 
-        EffectsManager.RebuildParticles();
+        Timing.CallDelayed(0.1f, () => EffectsManager.RebuildParticles());
 
         _flightDuration = flightDuration;
         _player = player;

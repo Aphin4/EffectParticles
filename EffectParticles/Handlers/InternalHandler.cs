@@ -1,12 +1,11 @@
 ﻿using CustomPlayerEffects;
 using EffectParticles.Events;
 using EffectParticles.Features;
-using EffectParticles.Features.Particles;
 using LabApi.Events.Arguments.PlayerEvents;
 using LabApi.Events.Handlers;
 using LabApi.Features.Wrappers;
 using MEC;
-using System;
+using PlayerRoles;
 using UserSettings.ServerSpecific;
 
 namespace EffectParticles.Handlers;
@@ -19,6 +18,7 @@ internal static class InternalHandler
 
         PlayerEvents.Left += OnPlayerLeft;
         PlayerEvents.Joined += OnPlayerJoined;
+        PlayerEvents.ChangedRole += OnPlayerRoleChanged;
         ServerSpecificSettingsSync.ServerOnSettingValueReceived += OnServerOnSettingValueReceived;
 
         ServerEvents.WaitingForPlayers += ConfigExtensions.Init;
@@ -29,6 +29,7 @@ internal static class InternalHandler
 
         PlayerEvents.Left -= OnPlayerLeft;
         PlayerEvents.Joined -= OnPlayerJoined;
+        PlayerEvents.ChangedRole += OnPlayerRoleChanged;
         ServerSpecificSettingsSync.ServerOnSettingValueReceived -= OnServerOnSettingValueReceived;
 
         ServerEvents.WaitingForPlayers -= ConfigExtensions.Init;
@@ -71,6 +72,12 @@ internal static class InternalHandler
     private static void OnPlayerJoined(PlayerJoinedEventArgs ev)
     {
         Timing.CallDelayed(1f, () => SSParticleVisible.CollectSettings(ev.Player));
+    }
+
+    private static void OnPlayerRoleChanged(PlayerChangedRoleEventArgs ev)
+    {
+        if (ev.OldRole == RoleTypeId.Scp939 || ev.NewRole.RoleTypeId == RoleTypeId.Scp939)
+            EffectsManager.RebuildParticles();
     }
 
     private static void OnServerOnSettingValueReceived(ReferenceHub hub, ServerSpecificSettingBase settingsBase)

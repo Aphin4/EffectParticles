@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="References\**" />
+    <EmbeddedResource Remove="References\**" />
+    <None Remove="References\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="IsExternalInit" Version="1.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,28 +25,31 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <Publicize Include="Mirror" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\References\Assembly-CSharp.dll</HintPath>
+      <HintPath>References\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\References\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>References\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="CommandSystem.Core">
-      <HintPath>..\References\CommandSystem.Core.dll</HintPath>
+      <HintPath>References\CommandSystem.Core.dll</HintPath>
     </Reference>
     <Reference Include="LabApi">
-      <HintPath>..\References\LabApi.dll</HintPath>
+      <HintPath>References\LabApi.dll</HintPath>
     </Reference>
     <Reference Include="Mirror">
-      <HintPath>..\References\Dependencies\Mirror.dll</HintPath>
+      <HintPath>References\Mirror.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\References\UnityEngine.dll</HintPath>
+      <HintPath>References\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\References\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>References\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
-	  <Publicize Include="Mirror" />
   </ItemGroup>
 
 </Project>

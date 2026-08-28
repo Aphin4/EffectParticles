@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using PlayerRoles;
 
 namespace EffectParticles.Features;
 
@@ -86,6 +87,12 @@ internal static class EffectsManager
         {
             if (!player.IsPlayer)
                 continue;
+
+            if (player.Role == RoleTypeId.Scp939)
+            {
+                ParticleController.HideAllGameObjectsForPlayer(player);
+                    continue;
+            }
 
             if (SSParticleVisible.PlayerSettings.TryGetValue(player, out SettingsState settings))
             {
